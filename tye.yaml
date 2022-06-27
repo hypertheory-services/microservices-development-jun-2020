@@ -18,6 +18,9 @@ extensions:
   
 services:
 
+- name: registration-processor
+  project: .\services\RegistrationProcessorSolution\RegistrationProcessor\RegistrationProcessor.csproj
+
 - name: frontend
   dockerFile: frontend/Dockerfile
   args: "--no-cache"
