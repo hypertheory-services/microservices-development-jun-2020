@@ -6,6 +6,8 @@ ingress:
       - port: 5000
         protocol: http
     rules:
+      - path: /api/registrations
+        service: registration-processor
       - path: /
         service: frontend
 
