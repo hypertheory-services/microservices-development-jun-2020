@@ -31,4 +31,48 @@ public class CoursesData
             Data = response
         };
     }
+
+    public async Task<GetCoursesItemModel> AddCourseToServicesAsync(CourseCreateModel request)
+    {
+        var course = new Course {
+            Title = request.Title,
+            Description = request.Description,
+            Category = "Services",
+            NumberOfDays = request.NumberOfDays!.Value,
+            PositionInCategory = 0
+
+        };
+
+        await _adapter.GetCourseCollection().InsertOneAsync(course);
+
+        var response = new GetCoursesItemModel {
+            Id = course.Id.ToString(),
+            Title = course.Title,
+            Category = course.Category,
+            Description = course.Description
+        };
+        return response;
+    }
+
+    public async Task<GetCoursesItemModel> AddCourseToAngularAsync(CourseCreateModel request)
+    {
+        var course = new Course {
+            Title = request.Title,
+            Description = request.Description,
+            Category = "Angular",
+            NumberOfDays = request.NumberOfDays!.Value,
+            PositionInCategory = 0
+
+        };
+
+        await _adapter.GetCourseCollection().InsertOneAsync(course);
+
+        var response = new GetCoursesItemModel {
+            Id = course.Id.ToString(),
+            Title = course.Title,
+            Category = course.Category,
+            Description = course.Description
+        };
+        return response;
+    }
 }
