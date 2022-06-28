@@ -1,0 +1,23 @@
+
+
+ingress:
+  - name: ingress
+    bindings:
+      - port: 1337
+        protocol: http 
+    rules:
+      - path: /v1/stores/
+        service: coursesapi
+      - path: /v1/biz/
+        service: enrollmentsapi
+
+extensions:
+  - name: seq
+    logPath: ./.logs
+
+name: coursessolution
+services:
+- name: coursesapi
+  project: CoursesApi/CoursesApi.csproj
+- name: enrollmentsapi
+  project: EnrollmentsApi/EnrollmentsApi.csproj
