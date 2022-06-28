@@ -16,6 +16,9 @@ public class Course
     [BsonElement("category")]
     public string Category { get; set; } = string.Empty;
 
+    [BsonElement("description")]
+    public string Description {get; set;} = string.Empty;
+
     [BsonElement("positionInCategory")]
     public int PositionInCategory { get; set; }
 
