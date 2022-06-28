@@ -1,5 +1,7 @@
 
 
+# network: dev-environment_registrations
+
 ingress:
   - name: ingress
     bindings:
@@ -19,5 +21,14 @@ name: coursessolution
 services:
 - name: coursesapi
   project: CoursesApi/CoursesApi.csproj
+  env:
+    - name: MongoDbConnection__ConnectionString
+      value: mongodb://root:TokyoJoe138!@localhost:27017/courses_db?authSource=admin
+    - name: MongoDbConnection__Database
+      value: courses_db
+    - name: MongoDbConnection__Collection
+      value: courses
+    - name: MongoDbConnection__LogCommands
+      value: "true"
 - name: enrollmentsapi
   project: EnrollmentsApi/EnrollmentsApi.csproj

@@ -1,3 +1,8 @@
+using CoursesApi.Adapters;
+using CoursesApi.Domain;
+
+using HypertheoryApiUtils;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.Configure<MongoConnectionOptions>(
+    builder.Configuration.GetSection(MongoConnectionOptions.SectionName));
+
+builder.Services.AddSingleton<CoursesMongoDbAdapter>();
+builder.Services.AddScoped<CoursesData>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

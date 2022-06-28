@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Adapters\" />
-    <Folder Include="Domain\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
