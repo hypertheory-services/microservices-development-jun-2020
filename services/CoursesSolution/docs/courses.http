@@ -1,0 +1,18 @@
+
+
+### GET All Courses
+
+GET http://localhost:1337/v1/stores/courses HTTP/1.1
+
+
+
+### Add A Course
+POST http://localhost:1337/v1/stores/courses/angular
+Content-Type: application/json
+
+{
+    "title": "What's new in Angular 14",
+    "description": "No more NgModule needed!",
+    "numberOfDays": 3
+}
+
