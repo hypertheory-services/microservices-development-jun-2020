@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dapr.aspnetcore" Version="1.7.0" />
+    <PackageReference Include="google.protobuf" Version="3.21.2" />
     <PackageReference Include="HypertheoryApiUtils" Version="1.1.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />

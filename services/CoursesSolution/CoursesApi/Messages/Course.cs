@@ -25,16 +25,16 @@ namespace Courses.Messages {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgxjb3Vyc2UucHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJv",
-            "dG8iyAEKBkNvdXJzZRIKCgJpZBgBIAEoCRInCgRib2R5GAIgASgLMhkuQ291",
+            "dG8i1wEKBkNvdXJzZRIKCgJpZBgBIAEoCRInCgRib2R5GAIgASgLMhkuQ291",
             "cnNlLkNvdXJzZUluZm9ybWF0aW9uEisKB2NyZWF0ZWQYAyABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wGlwKEUNvdXJzZUluZm9ybWF0aW9uEgoK",
-            "AmlkGAEgASgJEhMKC2Rlc2NyaXB0aW9uGAIgASgJEhAKCGNhdGVnb3J5GAMg",
-            "ASgJEhQKDG51bWJlck9mRGF5cxgEIAEoBUITqgIQQ291cnNlcy5NZXNzYWdl",
-            "c2IGcHJvdG8z"));
+            "bGUucHJvdG9idWYuVGltZXN0YW1wGmsKEUNvdXJzZUluZm9ybWF0aW9uEgoK",
+            "AmlkGAEgASgJEg0KBXRpdGxlGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJ",
+            "EhAKCGNhdGVnb3J5GAQgASgJEhQKDG51bWJlck9mRGF5cxgFIAEoBUITqgIQ",
+            "Q291cnNlcy5NZXNzYWdlc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Courses.Messages.Course), global::Courses.Messages.Course.Parser, new[]{ "Id", "Body", "Created" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Courses.Messages.Course.Types.CourseInformation), global::Courses.Messages.Course.Types.CourseInformation.Parser, new[]{ "Id", "Description", "Category", "NumberOfDays" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Courses.Messages.Course), global::Courses.Messages.Course.Parser, new[]{ "Id", "Body", "Created" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Courses.Messages.Course.Types.CourseInformation), global::Courses.Messages.Course.Types.CourseInformation.Parser, new[]{ "Id", "Title", "Description", "Category", "NumberOfDays" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -360,6 +360,7 @@ namespace Courses.Messages {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public CourseInformation(CourseInformation other) : this() {
           id_ = other.id_;
+          title_ = other.title_;
           description_ = other.description_;
           category_ = other.category_;
           numberOfDays_ = other.numberOfDays_;
@@ -384,8 +385,20 @@ namespace Courses.Messages {
           }
         }
 
+        /// <summary>Field number for the "title" field.</summary>
+        public const int TitleFieldNumber = 2;
+        private string title_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Title {
+          get { return title_; }
+          set {
+            title_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
         /// <summary>Field number for the "description" field.</summary>
-        public const int DescriptionFieldNumber = 2;
+        public const int DescriptionFieldNumber = 3;
         private string description_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -397,7 +410,7 @@ namespace Courses.Messages {
         }
 
         /// <summary>Field number for the "category" field.</summary>
-        public const int CategoryFieldNumber = 3;
+        public const int CategoryFieldNumber = 4;
         private string category_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -409,7 +422,7 @@ namespace Courses.Messages {
         }
 
         /// <summary>Field number for the "numberOfDays" field.</summary>
-        public const int NumberOfDaysFieldNumber = 4;
+        public const int NumberOfDaysFieldNumber = 5;
         private int numberOfDays_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -436,6 +449,7 @@ namespace Courses.Messages {
             return true;
           }
           if (Id != other.Id) return false;
+          if (Title != other.Title) return false;
           if (Description != other.Description) return false;
           if (Category != other.Category) return false;
           if (NumberOfDays != other.NumberOfDays) return false;
@@ -447,6 +461,7 @@ namespace Courses.Messages {
         public override int GetHashCode() {
           int hash = 1;
           if (Id.Length != 0) hash ^= Id.GetHashCode();
+          if (Title.Length != 0) hash ^= Title.GetHashCode();
           if (Description.Length != 0) hash ^= Description.GetHashCode();
           if (Category.Length != 0) hash ^= Category.GetHashCode();
           if (NumberOfDays != 0) hash ^= NumberOfDays.GetHashCode();
@@ -472,16 +487,20 @@ namespace Courses.Messages {
             output.WriteRawTag(10);
             output.WriteString(Id);
           }
-          if (Description.Length != 0) {
+          if (Title.Length != 0) {
             output.WriteRawTag(18);
+            output.WriteString(Title);
+          }
+          if (Description.Length != 0) {
+            output.WriteRawTag(26);
             output.WriteString(Description);
           }
           if (Category.Length != 0) {
-            output.WriteRawTag(26);
+            output.WriteRawTag(34);
             output.WriteString(Category);
           }
           if (NumberOfDays != 0) {
-            output.WriteRawTag(32);
+            output.WriteRawTag(40);
             output.WriteInt32(NumberOfDays);
           }
           if (_unknownFields != null) {
@@ -498,16 +517,20 @@ namespace Courses.Messages {
             output.WriteRawTag(10);
             output.WriteString(Id);
           }
-          if (Description.Length != 0) {
+          if (Title.Length != 0) {
             output.WriteRawTag(18);
+            output.WriteString(Title);
+          }
+          if (Description.Length != 0) {
+            output.WriteRawTag(26);
             output.WriteString(Description);
           }
           if (Category.Length != 0) {
-            output.WriteRawTag(26);
+            output.WriteRawTag(34);
             output.WriteString(Category);
           }
           if (NumberOfDays != 0) {
-            output.WriteRawTag(32);
+            output.WriteRawTag(40);
             output.WriteInt32(NumberOfDays);
           }
           if (_unknownFields != null) {
@@ -522,6 +545,9 @@ namespace Courses.Messages {
           int size = 0;
           if (Id.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+          }
+          if (Title.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
           }
           if (Description.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
@@ -546,6 +572,9 @@ namespace Courses.Messages {
           }
           if (other.Id.Length != 0) {
             Id = other.Id;
+          }
+          if (other.Title.Length != 0) {
+            Title = other.Title;
           }
           if (other.Description.Length != 0) {
             Description = other.Description;
@@ -576,14 +605,18 @@ namespace Courses.Messages {
                 break;
               }
               case 18: {
-                Description = input.ReadString();
+                Title = input.ReadString();
                 break;
               }
               case 26: {
+                Description = input.ReadString();
+                break;
+              }
+              case 34: {
                 Category = input.ReadString();
                 break;
               }
-              case 32: {
+              case 40: {
                 NumberOfDays = input.ReadInt32();
                 break;
               }
@@ -607,14 +640,18 @@ namespace Courses.Messages {
                 break;
               }
               case 18: {
-                Description = input.ReadString();
+                Title = input.ReadString();
                 break;
               }
               case 26: {
+                Description = input.ReadString();
+                break;
+              }
+              case 34: {
                 Category = input.ReadString();
                 break;
               }
-              case 32: {
+              case 40: {
                 NumberOfDays = input.ReadInt32();
                 break;
               }

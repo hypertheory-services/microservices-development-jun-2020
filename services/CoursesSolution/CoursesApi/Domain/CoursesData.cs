@@ -35,10 +35,17 @@ public class CoursesData
 
     public async Task<GetCoursesItemModel> AddCourseToServicesAsync(CourseCreateModel request)
     {
-        var course = new Course {
+        var category = "Services";
+        return await SaveCourse(request, category);
+    }
+
+    private async Task<GetCoursesItemModel> SaveCourse(CourseCreateModel request, string category)
+    {
+        var course = new Course
+        {
             Title = request.Title,
             Description = request.Description,
-            Category = "Services",
+            Category = category,
             NumberOfDays = request.NumberOfDays!.Value,
             PositionInCategory = 0
 
@@ -46,7 +53,8 @@ public class CoursesData
 
         await _adapter.GetCourseCollection().InsertOneAsync(course);
 
-        var response = new GetCoursesItemModel {
+        var response = new GetCoursesItemModel
+        {
             Id = course.Id.ToString(),
             Title = course.Title,
             Category = course.Category,

@@ -16,6 +16,8 @@ builder.Services.Configure<MongoConnectionOptions>(
     builder.Configuration.GetSection(MongoConnectionOptions.SectionName));
 
 builder.Services.AddSingleton<CoursesMongoDbAdapter>();
+builder.Services.AddScoped<CoursesPubSubAdapter>();
+
 builder.Services.AddScoped<CoursesData>();
 var app = builder.Build();
 
