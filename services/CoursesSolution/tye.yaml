@@ -18,6 +18,7 @@ extensions:
     logPath: ./.logs
   - name: dapr
     components-path: "./components"
+    enable-profiling: true
 
 
 name: coursessolution

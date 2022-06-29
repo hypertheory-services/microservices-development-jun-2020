@@ -17,8 +17,9 @@ builder.Services.Configure<MongoConnectionOptions>(
 
 builder.Services.AddSingleton<CoursesMongoDbAdapter>();
 builder.Services.AddScoped<CoursesPubSubAdapter>();
-
+builder.Services.AddScoped<CoursesPublish>();
 builder.Services.AddScoped<CoursesData>();
+builder.Services.AddDaprClient(); // sus...
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
