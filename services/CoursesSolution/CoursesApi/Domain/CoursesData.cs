@@ -21,7 +21,8 @@ public class CoursesData
             Id = c.Id.ToString(),
             Title = c.Title,
             Description = c.Description,
-            Category = c.Category
+            Category = c.Category,
+            NumberOfDays = c.NumberOfDays
             
         });
         var response = await _adapter.GetCourseCollection().Find(_ => true).Project(projection).ToListAsync();

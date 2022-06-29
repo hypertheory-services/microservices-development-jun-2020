@@ -16,6 +16,9 @@ ingress:
 extensions:
   - name: seq
     logPath: ./.logs
+  - name: dapr
+    components-path: "./components"
+
 
 name: coursessolution
 services:
