@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package greet;
+
+
+service NotificationsService {
+    rpc GetNotificationsForTopic( TopicRequest) returns (stream TopicResponse);
+}
+
+message TopicRequest {
+    string topicName = 1;
+}
+
+message TopicResponse {
+    string message = 1;
+}

@@ -1,21 +1,22 @@
 
+namespace: dapr-demo
 
 # network: dev-environment_registrations
 
-ingress:
-  - name: ingress
-    bindings:
-      - port: 1337
-        protocol: http 
-    rules:
-      - path: /v1/stores/
-        service: coursesapi
-      - path: /v1/biz/
-        service: enrollmentsapi
+# ingress:
+#   - name: ingress
+#     bindings:
+#       - port: 1337
+#         protocol: http 
+#     rules:
+#       - path: /v1/stores/
+#         service: coursesapi
+#       - path: /v1/biz/
+#         service: enrollmentsapi
 
 extensions:
-  - name: seq
-    logPath: ./.logs
+  # - name: seq
+  #   logPath: ./.logs
   - name: dapr
     components-path: ./components
     enable-profiling: true
@@ -34,5 +35,5 @@ services:
       value: courses
     - name: MongoDbConnection__LogCommands
       value: "true"
-- name: enrollmentsapi
-  project: EnrollmentsApi/EnrollmentsApi.csproj
+# - name: enrollmentsapi
+#   project: EnrollmentsApi/EnrollmentsApi.csproj
