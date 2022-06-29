@@ -54,7 +54,7 @@ public class CoursesData
         };
 
         await _adapter.GetCourseCollection().InsertOneAsync(course);
-
+        // await _adapter.GetCourseCollection().ReplaceOneAsync(c => c.Id == course.Id, course, new ReplaceOptions { IsUpsert = true});
         var response = new GetCoursesItemModel
         {
             Id = course.Id.ToString(),

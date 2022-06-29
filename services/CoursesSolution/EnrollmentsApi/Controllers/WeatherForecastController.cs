@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Dapr;
 namespace EnrollmentsApi.Controllers
 {
     [ApiController]
@@ -17,6 +17,16 @@ namespace EnrollmentsApi.Controllers
         {
             _logger = logger;
         }
+
+        [HttpPost("process-course")]
+        [Topic("courses", "course")]
+        public async Task<ActionResult> ProcessCourse([FromBody] Object course)
+        {
+            _logger.LogInformation("Got a course! Thanks!" + course.ToString());
+            // save it to my database.
+            return Ok();
+        }
+
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
